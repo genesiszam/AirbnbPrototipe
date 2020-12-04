@@ -1,0 +1,39 @@
+<%= form_with(model: property, local: true) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :pricexnight %>
+    <%= form.text_field :pricexnight, class:"form-control" %>
+  </div>
+  <div class="field form-group">
+    <% if property.image.attached? %>
+        <%= image_tag property.image, style: "width:200px; display: block" %>
+    <% end %>
+        <%= form.label :image %>
+        <%= form.file_field :images, multiple: true, class:"form-control" %>
+  </div>
+  <br>
+  <div class="actions form-group">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>

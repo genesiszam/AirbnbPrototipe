@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<nav class="nav justify-content-end">
+  <a class="nav-link active" href="/users">Users</a>
+  <a class="nav-link active" href="/reservations">Reservations</a>
+  <a class="nav-link active" href="/properties">Properties</a>
+  <a class="nav-link active" href="/users/sign_out">Sign out</a>
+</nav>
+
+<h3>Reservations</h3>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Number of nights</th>
+      <th scope="col" >Number of guests</th>
+      <th scope="col" class="hide">Approved</th>
+      <th scope="col" >Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.name %></td>
+        <td><%= reservation.lastname %></td>
+        <td><%= reservation.email %></td>
+        <td><%= reservation.phone %></td>
+        <td><%= reservation.numbernights %></td>
+        <td><%= reservation.numberguests %></td>
+        <td><%= reservation.approved %></td>
+        <td><%= reservation.total %></td>
+        <% if user_signed_in? %>
+        <td><%= link_to 'Show', reservation %></td>
+        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+

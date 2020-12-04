@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @reservation.name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @reservation.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @reservation.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @reservation.phone %>
+</p>
+
+<p>
+  <strong>Number of nights:</strong>
+  <%= @reservation.numbernights %>
+</p>
+
+<p>
+  <strong>Number of guests:</strong>
+  <%= @reservation.numberguests %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @reservation.approved %>
+</p>
+
+<%= link_to 'Back', reservations_path %>
